@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class DotCom {
 
+	private String m_szName;
 	private ArrayList<String> m_aLocationCells;
-	//	private int m_nNumOfHits;
-	//	don't need this anymore
+
 
 	public String CheckYourself(String szUserInput) {
 		
@@ -29,6 +29,7 @@ public class DotCom {
 			if(m_aLocationCells.isEmpty())
 			{
 				szResult = "kill";
+				System.out.println("Ouch! You sunk " + m_szName + "  :-(");
 			}
 			else
 			{
@@ -45,6 +46,11 @@ public class DotCom {
 		// TODO Auto-generated method stub
 		m_aLocationCells = loc;
 		
+	}
+
+	public void SetName(String szName) {
+		// TODO Auto-generated method stub
+		m_szName = szName;
 	}
 
 }
