@@ -54,7 +54,7 @@ public class DotComGame {
 			enemies.SetLocationCells(m_Helper.PlaceDotCom(3));
 		}
 		
-	}
+	}	//	end SetUpGame()
 	
 	//	Declare a start playing method that asks the player for guesses
 	//	and calls the checkUserGuess() method until all the DotCom objects
@@ -71,7 +71,8 @@ public class DotComGame {
 		
 		//	Then finish off the game once this is done
 		FinishGame();
-	}
+		
+	}	//	end StartPlaying()
 	
 	//	Declare a method that checks the guess the user makes that loops through
 	//	through all the remaining DotCom objects and calls each one's CheckYourself
@@ -107,7 +108,7 @@ public class DotComGame {
 		System.out.println(szResult);
 		//	Display the result value to the user
 		
-	}
+	}	//	end CheckUserGuess()
 	
 	//	Declare a finish game method that prints a message about how the user did based upon how
 	//	many guesses it took to sink the DotCom objects
@@ -128,12 +129,13 @@ public class DotComGame {
 		{
 			System.out.println("I've seen a pig who is randomly chewing on a mouse find the ships faster than you!");
 		}
-	}
+		
+	}	//	end FinishGame()
 	
 	public static void main(String[] args) {
 		DotComGame game = new DotComGame();
 		game.SetUpGame();
 		game.StartPlaying();
-	}
+	}	//	end main()
 		
-}
+}	//	end DotComGame class
