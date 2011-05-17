@@ -39,13 +39,76 @@ public class GameHelper {
 	{
 		ArrayList<String> alAlphaCells = new ArrayList<String>();
 		String[] pszAlphaCoords = new String [nComSize];			//	holds 'f6' type coords
-		String szTemp = null;										//	temporary String for concat
-		int[] anCoords = new int[nComSize];							//	
-		int nAttempts = 0;
-		boolean bSuccess = false;
-		int nLocation = 0;
+		String szTemp = null;										//	temporary String for concatination
+		int[] anCoords = new int[nComSize];							//	current candidate coords
+		int nAttempts = 0;											//	number of attempts
+		boolean bSuccess = false;									//	have we found proper location
+		int nLocation = 0;											//	current starting location
 		
+		m_nComCount++;
 		
-	}
+		//	Set the horizontal increment
+		int nIncr = 1;
+		
+		//	If the dot com is an odd number
+		if((m_nComCount % 2) == 1)
+		{
+			nIncr = m_nGridLength;
+		}
+		
+		while(!bSuccess && nAttempts++ < 200)
+		{
+			nLocation = (int) (Math.random() * m_nGridSize);
+			
+			//System.out.print(" try " + nLocation);
+			int nX = 0;
+			bSuccess = true;
+			while(bSuccess && nX < nComSize)
+			{
+				if(m_arrGrid[nLocation] == 0)
+				{
+					anCoords[nX++] = nLocation;
+					nLocation += nIncr;
+					
+					if(nLocation >= m_nGridSize)
+					{
+						bSuccess = false;
+					}
+					
+					if(nX > 0 && (nLocation % m_nGridLength == 0))
+					{
+						bSuccess = false;
+					}
+
+				}
+				else
+				{
+					//System.out.print(" used " + nLocation);
+					bSuccess = false;
+				}
+			}
+		}
+		
+		int nXCoord = 0;
+		int nRow = 0;
+		int nColumn = 0;
+		//System.out.println("\n");
+		while(nXCoord < nComSize)
+		{
+			m_arrGrid[anCoords[nXCoord]] = 1;
+			nRow = (int) (anCoords[nXCoord] / m_nGridLength);
+			nColumn = anCoords[nXCoord] % m_nGridLength;
+			szTemp = String.valueOf(m_szAlphabet.charAt(nColumn));
+			
+			alAlphaCells.add(szTemp.concat(Integer.toString(nRow)));
+			nXCoord++;
+			//System.out.print(" coord "+nXCoord+" = " + alAlphaCells.get(nXCoord - 1));
+			
+		}
+		
+		//System.out.println("\n");
+		
+		return alAlphaCells;
+	}	//	end ArrayList()
 	
 }	//	end GameHelper class
