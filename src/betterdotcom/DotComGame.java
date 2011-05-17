@@ -23,20 +23,19 @@ public class DotComGame {
 	{
 		//	Make the three DotCom Objects
 		//	Create the three DotCom Objects
-		DotCom tempDotCom = new DotCom();
+		DotCom firstCom = new DotCom();
+		DotCom secondCom = new DotCom();
+		DotCom thirdCom = new DotCom();
 		
 		//	Set a name for each DotCom
-		tempDotCom.SetName("Pets.com");
-		//	Add them to the ArrayList
-		m_alDotComList.add(tempDotCom);
+		firstCom.SetName("Pets.com");
+		secondCom.SetName("Amazon.com");
+		thirdCom.SetName("Foobar.com");
 		
-		tempDotCom.SetName("Amazon.com");
 		//	Add them to the ArrayList
-		m_alDotComList.add(tempDotCom);
-		
-		tempDotCom.SetName("Foobar.com");
-		//	Add them to the ArrayList
-		m_alDotComList.add(tempDotCom);
+		m_alDotComList.add(firstCom);	
+		m_alDotComList.add(secondCom);
+		m_alDotComList.add(thirdCom);
 		
 		//	Instructions for the suer
 		System.out.println("Your goal is to sink three dot coms.");

@@ -37,6 +37,14 @@ public class GameHelper {
 	
 	public ArrayList<String> PlaceDotCom(int nComSize)
 	{
+		ArrayList<String> alAlphaCells = new ArrayList<String>();
+		String[] pszAlphaCoords = new String [nComSize];			//	holds 'f6' type coords
+		String szTemp = null;										//	temporary String for concat
+		int[] anCoords = new int[nComSize];							//	
+		int nAttempts = 0;
+		boolean bSuccess = false;
+		int nLocation = 0;
+		
 		
 	}
 	
